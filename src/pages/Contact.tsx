@@ -3,11 +3,17 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { ExternalLink, MessageCircle } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useI18n } from "@/lib/i18n";
+
+const WHATSAPP_DISPLAY = "+94 XX XXX XXXX";
+const WHATSAPP_NUMBER = "94XXXXXXXXX";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -18,6 +24,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export default function Contact() {
+  const { t } = useI18n();
   const defaults = useMemo<FormValues>(() => ({ name: "", email: "", message: "" }), []);
   const {
     register,
@@ -36,18 +43,27 @@ export default function Contact() {
   return (
     <div className="space-y-8">
       <SectionHeading
-        title="Contact Us"
-        description="Send a message, or reach us via email/phone. Social links can be added here." 
+        title={t("contact.title")}
+        description={t("contact.description")}
       />
 
       <section className="grid gap-6 md:grid-cols-3">
         <div className="rounded-xl border border-border bg-card p-6 shadow-soft">
-          <div className="text-sm font-medium text-muted-foreground">Email</div>
-          <div className="mt-2 font-medium">library.project@example.com</div>
+          <div className="text-sm font-medium text-muted-foreground">{t("contact.whatsapp")}</div>
+          <div className="mt-2 font-medium">{WHATSAPP_DISPLAY}</div>
+          <div className="mt-4">
+            <Button asChild variant="hero" size="sm">
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer">
+                <MessageCircle />
+                WhatsApp
+                <ExternalLink />
+              </a>
+            </Button>
+          </div>
         </div>
         <div className="rounded-xl border border-border bg-card p-6 shadow-soft">
-          <div className="text-sm font-medium text-muted-foreground">Phone</div>
-          <div className="mt-2 font-medium">+94 XX XXX XXXX</div>
+          <div className="text-sm font-medium text-muted-foreground">Email</div>
+          <div className="mt-2 font-medium">library.project@example.com</div>
         </div>
         <div className="rounded-xl border border-border bg-card p-6 shadow-soft">
           <div className="text-sm font-medium text-muted-foreground">Social</div>
@@ -80,6 +96,44 @@ export default function Contact() {
             </Button>
           </div>
         </form>
+      </section>
+
+      <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:p-8">
+        <h2 className="text-xl font-semibold">{t("contact.map")}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">Map placeholder (replace with your exact pickup point/office).</p>
+        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+          <iframe
+            title="Map"
+            loading="lazy"
+            className="h-72 w-full"
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Colombo%2C%20Sri%20Lanka&output=embed"
+          />
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-border bg-card p-6 shadow-soft md:p-8">
+        <h2 className="text-xl font-semibold">{t("contact.faq")}</h2>
+        <Accordion type="single" collapsible className="mt-4">
+          <AccordionItem value="donate">
+            <AccordionTrigger>How to donate?</AccordionTrigger>
+            <AccordionContent>
+              Submit the Donate Books pledge, and we will contact you to coordinate pickup/drop-off.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="receive">
+            <AccordionTrigger>Who receives the books?</AccordionTrigger>
+            <AccordionContent>
+              Books are delivered to the supported school library as part of the Breathing Letters initiative.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="volunteer">
+            <AccordionTrigger>How do I volunteer?</AccordionTrigger>
+            <AccordionContent>
+              Fill out the volunteer form and we’ll reach out with next steps based on your availability and skills.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </section>
     </div>
   );

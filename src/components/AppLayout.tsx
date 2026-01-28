@@ -5,11 +5,9 @@ import { useI18n } from "@/lib/i18n";
 
 const nav = [
   { to: "/", key: "nav.home" },
-  { to: "/about", key: "nav.about" },
   { to: "/donate-books", key: "nav.donateBooks" },
-  { to: "/donate-funds", key: "nav.donateFunds" },
-  { to: "/how-it-works", key: "nav.how" },
-  { to: "/impact", key: "nav.impact" },
+  { to: "/donate-money", key: "nav.donateMoney" },
+  { to: "/updates", key: "nav.updates" },
   { to: "/volunteer", key: "nav.volunteer" },
   { to: "/contact", key: "nav.contact" },
 ];
@@ -35,7 +33,7 @@ export default function AppLayout() {
             >
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-brand shadow-brand" aria-hidden="true" />
               <span className="hidden font-semibold tracking-tight sm:inline">{t("app.name")}</span>
-              <span className="font-semibold tracking-tight sm:hidden">Library</span>
+              <span className="font-semibold tracking-tight sm:hidden">Letters</span>
             </NavLink>
           </div>
 
@@ -82,10 +80,42 @@ export default function AppLayout() {
 
       <footer className="border-t border-border/70 bg-background">
         <div className="container py-10">
-          <p className="text-sm text-muted-foreground">{t("footer.tag")}</p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            © {new Date().getFullYear()} — Built for community impact.
-          </p>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-2">
+              <div className="text-sm font-medium">{t("app.name")}</div>
+              <p className="text-sm text-muted-foreground">{t("footer.tag")}</p>
+              <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} — Built for community impact.</p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="text-sm font-medium">{t("footer.links")}</div>
+              <div className="grid gap-1 text-sm">
+                <NavLink
+                  to="/updates"
+                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {t("nav.updates")}
+                </NavLink>
+                <NavLink
+                  to="/donate-money"
+                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {t("nav.donateMoney")}
+                </NavLink>
+                <NavLink
+                  to="/privacy-policy"
+                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {t("footer.privacy")}
+                </NavLink>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="text-sm font-medium">Social</div>
+              <p className="text-sm text-muted-foreground">Facebook / Instagram / LinkedIn (placeholders)</p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
