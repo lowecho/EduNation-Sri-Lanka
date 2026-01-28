@@ -3,7 +3,16 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { I18nProvider } from "@/lib/i18n";
+import AppLayout from "@/components/AppLayout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import DonateBooks from "./pages/DonateBooks";
+import DonateFunds from "./pages/DonateFunds";
+import HowItWorks from "./pages/HowItWorks";
+import Impact from "./pages/Impact";
+import Volunteer from "./pages/Volunteer";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -14,11 +23,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <I18nProvider>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/donate-books" element={<DonateBooks />} />
+              <Route path="/donate-funds" element={<DonateFunds />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/impact" element={<Impact />} />
+              <Route path="/volunteer" element={<Volunteer />} />
+              <Route path="/contact" element={<Contact />} />
+            </Route>
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </I18nProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
