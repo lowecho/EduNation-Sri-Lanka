@@ -8,26 +8,20 @@ type Props = {
 };
 
 export default function BrandMark({ label, compactLabel = "BL", size = "md" }: Props) {
-  const imgSize = size === "sm" ? "h-8 w-8" : "h-9 w-9";
+  const imgSize = size === "sm" ? "h-9" : "h-10";
 
   return (
     <NavLink
       to="/"
       className="group inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      <span
-        className="relative inline-flex items-center justify-center rounded-full border border-border bg-card shadow-soft"
-        aria-hidden="true"
-      >
-        <img
-          src={logo}
-          alt=""
-          className={`${imgSize} rounded-full object-contain p-1`}
-          loading="eager"
-          draggable={false}
-        />
-        <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-foreground/5" />
-      </span>
+      <img
+        src={logo}
+        alt={`${label} logo`}
+        className={`${imgSize} w-auto object-contain`}
+        loading="eager"
+        draggable={false}
+      />
       <span className="hidden font-semibold tracking-tight sm:inline">{label}</span>
       <span className="font-semibold tracking-tight sm:hidden">{compactLabel}</span>
     </NavLink>

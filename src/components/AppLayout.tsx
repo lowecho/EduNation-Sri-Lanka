@@ -83,12 +83,24 @@ export default function AppLayout() {
               <p className="max-w-sm text-sm text-muted-foreground">{t("footer.tag")}</p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                <a
-                  href="#main"
+                <NavLink
+                  to="/donate-books"
                   className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  Back to top
-                </a>
+                  {t("nav.donateBooks")}
+                </NavLink>
+                <NavLink
+                  to="/donate-money"
+                  className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {t("nav.donateMoney")}
+                </NavLink>
+                <NavLink
+                  to="/volunteer"
+                  className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {t("nav.volunteer")}
+                </NavLink>
                 <NavLink
                   to="/contact"
                   className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
