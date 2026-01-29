@@ -87,42 +87,169 @@ export default function AppLayout() {
       </main>
 
       <footer className="border-t border-border/70 bg-background">
-        <div className="container py-10">
-          <div className="grid gap-8 md:grid-cols-12">
-            <div className="space-y-2">
-              <div className="text-sm font-medium">{t("app.name")}</div>
-              <p className="text-sm text-muted-foreground">{t("footer.tag")}</p>
-              <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} — Built for community impact.</p>
-            </div>
+        <div className="container py-12">
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="space-y-3 lg:col-span-4">
+              <NavLink
+                to="/"
+                className="inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <span
+                  className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card shadow-soft"
+                  aria-hidden="true"
+                >
+                  <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+                  <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-foreground/5" />
+                </span>
+                <span className="text-sm font-semibold tracking-tight">{t("app.name")}</span>
+              </NavLink>
 
-            <div className="space-y-2 md:col-span-5">
-              <div className="text-sm font-medium">{t("footer.links")}</div>
-              <div className="grid gap-1 text-sm">
-                <NavLink
-                  to="/updates"
-                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              <p className="max-w-sm text-sm text-muted-foreground">{t("footer.tag")}</p>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                <a
+                  href="#main"
+                  className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  {t("nav.updates")}
-                </NavLink>
+                  Back to top
+                </a>
                 <NavLink
-                  to="/donate-money"
-                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  to="/contact"
+                  className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  {t("nav.donateMoney")}
-                </NavLink>
-                <NavLink
-                  to="/privacy-policy"
-                  className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  {t("footer.privacy")}
+                  {t("nav.contact")}
                 </NavLink>
               </div>
             </div>
 
-            <div className="space-y-2 md:col-span-4">
-              <div className="text-sm font-medium">Social</div>
-              <p className="text-sm text-muted-foreground">Facebook / Instagram / LinkedIn (placeholders)</p>
+            <div className="grid gap-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4">
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  {t("footer.links")}
+                </div>
+                <div className="grid gap-2 text-sm">
+                  <NavLink
+                    to="/"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("nav.home")}
+                  </NavLink>
+                  <NavLink
+                    to="/updates"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("nav.updates")}
+                  </NavLink>
+                  <NavLink
+                    to="/how-it-works"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    How it works
+                  </NavLink>
+                  <NavLink
+                    to="/impact"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    Impact
+                  </NavLink>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Get involved</div>
+                <div className="grid gap-2 text-sm">
+                  <NavLink
+                    to="/donate-books"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("nav.donateBooks")}
+                  </NavLink>
+                  <NavLink
+                    to="/donate-money"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("nav.donateMoney")}
+                  </NavLink>
+                  <NavLink
+                    to="/volunteer"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("nav.volunteer")}
+                  </NavLink>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Contact</div>
+                <div className="grid gap-2 text-sm">
+                  <NavLink
+                    to="/contact"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    Contact page
+                  </NavLink>
+                  <a
+                    href="mailto:library.project@example.com"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    library.project@example.com
+                  </a>
+                  <a
+                    href="https://wa.me/94XXXXXXXXX"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    WhatsApp: +94 XX XXX XXXX
+                  </a>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Legal & social</div>
+                <div className="grid gap-2 text-sm">
+                  <NavLink
+                    to="/privacy-policy"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {t("footer.privacy")}
+                  </NavLink>
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-disabled="true"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Facebook (add link)
+                  </a>
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-disabled="true"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Instagram (add link)
+                  </a>
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-disabled="true"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    LinkedIn (add link)
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-3 border-t border-border/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} — Built for community impact.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Made with a paper-and-ink design system • Light & Dark supported
+            </p>
           </div>
         </div>
       </footer>
