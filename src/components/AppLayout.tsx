@@ -29,7 +29,7 @@ export default function AppLayout() {
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur">
         <div className="container flex h-16 items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
-              <BrandMark label={t("app.name")} />
+              <BrandMark label={t("app.name")} size="lg" />
             </div>
 
           <div className="flex items-center gap-2">
