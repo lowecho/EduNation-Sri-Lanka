@@ -3,6 +3,7 @@ import { NavLink } from "@/components/NavLink";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useI18n } from "@/lib/i18n";
 import ThemeToggle from "@/components/ThemeToggle";
+import BrandMark from "@/components/BrandMark";
 
 const nav = [
   { to: "/", key: "nav.home" },
@@ -27,22 +28,9 @@ export default function AppLayout() {
 
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur">
         <div className="container flex h-16 items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <NavLink
-              to="/"
-              className="group inline-flex items-center gap-3 rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <span
-                className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card shadow-soft"
-                aria-hidden="true"
-              >
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-foreground/5" />
-              </span>
-              <span className="hidden font-semibold tracking-tight sm:inline">{t("app.name")}</span>
-              <span className="font-semibold tracking-tight sm:hidden">BL</span>
-            </NavLink>
-          </div>
+            <div className="flex min-w-0 items-center gap-3">
+              <BrandMark label={t("app.name")} />
+            </div>
 
           <div className="flex items-center gap-2">
             <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
@@ -90,19 +78,7 @@ export default function AppLayout() {
         <div className="container py-12">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="space-y-3 lg:col-span-4">
-              <NavLink
-                to="/"
-                className="inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <span
-                  className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card shadow-soft"
-                  aria-hidden="true"
-                >
-                  <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                  <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-foreground/5" />
-                </span>
-                <span className="text-sm font-semibold tracking-tight">{t("app.name")}</span>
-              </NavLink>
+              <BrandMark label={t("app.name")} size="sm" />
 
               <p className="max-w-sm text-sm text-muted-foreground">{t("footer.tag")}</p>
 
@@ -190,7 +166,7 @@ export default function AppLayout() {
                   </NavLink>
                   <a
                     href="mailto:library.project@example.com"
-                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="break-all text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     library.project@example.com
                   </a>
@@ -198,7 +174,7 @@ export default function AppLayout() {
                     href="https://wa.me/94XXXXXXXXX"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="break-all text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     WhatsApp: +94 XX XXX XXXX
                   </a>
@@ -243,7 +219,7 @@ export default function AppLayout() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-3 border-t border-border/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-10 flex flex-col gap-3 border-t border-border/70 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} — Built for community impact.
             </p>
