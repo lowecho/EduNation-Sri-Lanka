@@ -8,26 +8,44 @@ type Props = {
 };
 
 export default function BrandMark({ label, compactLabel = "BL", size = "md" }: Props) {
-  const imgSize = size === "sm" ? "h-9" : size === "lg" ? "h-14" : "h-10";
+  const imgSize = size === "sm" ? "h-10 w-10" : size === "lg" ? "h-12 w-12" : "h-11 w-11";
   const labelClass =
     size === "lg"
-      ? "text-base font-semibold tracking-tight sm:text-lg"
-      : "text-sm font-semibold tracking-tight sm:text-base";
+      ? "text-lg font-bold tracking-tight sm:text-xl"
+      : size === "sm"
+        ? "text-base font-bold tracking-tight"
+        : "text-base font-bold tracking-tight sm:text-lg";
 
   return (
     <NavLink
       to="/"
-      className="group inline-flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group inline-flex items-center gap-3 rounded-lg px-2 py-1.5 transition-all duration-300 hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      <img
-        src={logo}
-        alt={`${label} logo`}
-        className={`${imgSize} w-auto object-contain drop-shadow-sm`}
-        loading="eager"
-        draggable={false}
-      />
-      <span className={`hidden sm:inline ${labelClass}`}>{label}</span>
-      <span className={`sm:hidden ${labelClass}`}>{compactLabel}</span>
+      {/* Logo with glow effect */}
+      <div className="relative">
+        <div className="absolute inset-0 rounded-full bg-primary/20 blur-md opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <img
+          src={logo}
+          alt={`${label} logo`}
+          className={`${imgSize} relative rounded-lg object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-110`}
+          loading="eager"
+          draggable={false}
+        />
+      </div>
+
+      {/* Text with gradient effect */}
+      <div className="flex flex-col">
+        <span
+          className={`hidden bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text sm:inline ${labelClass} transition-all duration-300 group-hover:from-primary group-hover:to-foreground`}
+        >
+          {label}
+        </span>
+        <span
+          className={`bg-gradient-to-r from-foreground to-primary bg-clip-text sm:hidden ${labelClass}`}
+        >
+          {compactLabel}
+        </span>
+      </div>
     </NavLink>
   );
 }
