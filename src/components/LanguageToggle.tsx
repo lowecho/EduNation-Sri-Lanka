@@ -11,14 +11,14 @@ export default function LanguageToggle() {
   const { lang, setLang } = useI18n();
 
   return (
-    <div className="inline-flex items-center rounded-md border border-border bg-card/70 p-1 shadow-soft">
+    <div className="inline-flex items-center rounded-full border border-border bg-background/60 p-1 shadow-soft backdrop-blur">
       {languages.map((l) => (
         <Button
           key={l.value}
           type="button"
           variant={lang === l.value ? "soft" : "ghost"}
           size="sm"
-          className="h-8 px-2"
+          className="h-8 rounded-full px-2"
           onClick={() => setLang(l.value)}
           aria-pressed={lang === l.value}
         >

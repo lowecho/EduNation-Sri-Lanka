@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useI18n } from "@/lib/i18n";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const nav = [
   { to: "/", key: "nav.home" },
@@ -24,16 +25,22 @@ export default function AppLayout() {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur">
-        <div className="container flex h-14 items-center justify-between gap-3">
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur">
+        <div className="container flex h-16 items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <NavLink
               to="/"
-              className="group inline-flex items-center gap-2 rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group inline-flex items-center gap-3 rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-brand shadow-brand" aria-hidden="true" />
+              <span
+                className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card shadow-soft"
+                aria-hidden="true"
+              >
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-foreground/5" />
+              </span>
               <span className="hidden font-semibold tracking-tight sm:inline">{t("app.name")}</span>
-              <span className="font-semibold tracking-tight sm:hidden">Letters</span>
+              <span className="font-semibold tracking-tight sm:hidden">BL</span>
             </NavLink>
           </div>
 
@@ -44,13 +51,14 @@ export default function AppLayout() {
                   key={n.to}
                   to={n.to}
                   end={n.to === "/"}
-                  className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  activeClassName="bg-accent text-accent-foreground"
+                  className="rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  activeClassName="bg-accent text-accent-foreground shadow-soft"
                 >
                   {t(n.key)}
                 </NavLink>
               ))}
             </nav>
+            <ThemeToggle />
             <LanguageToggle />
           </div>
         </div>
@@ -63,8 +71,8 @@ export default function AppLayout() {
                   key={n.to}
                   to={n.to}
                   end={n.to === "/"}
-                  className="whitespace-nowrap rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  activeClassName="bg-accent text-accent-foreground"
+                  className="whitespace-nowrap rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  activeClassName="bg-accent text-accent-foreground shadow-soft"
                 >
                   {t(n.key)}
                 </NavLink>
@@ -80,14 +88,14 @@ export default function AppLayout() {
 
       <footer className="border-t border-border/70 bg-background">
         <div className="container py-10">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-12">
             <div className="space-y-2">
               <div className="text-sm font-medium">{t("app.name")}</div>
               <p className="text-sm text-muted-foreground">{t("footer.tag")}</p>
               <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} — Built for community impact.</p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 md:col-span-5">
               <div className="text-sm font-medium">{t("footer.links")}</div>
               <div className="grid gap-1 text-sm">
                 <NavLink
@@ -111,7 +119,7 @@ export default function AppLayout() {
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2 md:col-span-4">
               <div className="text-sm font-medium">Social</div>
               <p className="text-sm text-muted-foreground">Facebook / Instagram / LinkedIn (placeholders)</p>
             </div>
