@@ -185,7 +185,7 @@ export default function About() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
-              <Link to="/donate-books">
+              <Link to="/donatebooks">
                 <BookOpen className="h-5 w-5" />
                 Donate Books
               </Link>

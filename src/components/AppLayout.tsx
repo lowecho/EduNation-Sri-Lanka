@@ -8,8 +8,8 @@ import { Heart, Mail, Phone, MapPin, Github, Twitter, Linkedin, Instagram } from
 
 const nav = [
   { to: "/", key: "nav.home" },
-  { to: "/donate-books", key: "nav.donateBooks" },
-  { to: "/donate-money", key: "nav.donateMoney" },
+  { to: "/donatebooks", key: "nav.donateBooks" },
+  { to: "/donatemoney", key: "nav.donateMoney" },
   { to: "/updates", key: "nav.updates" },
   { to: "/volunteer", key: "nav.volunteer" },
   { to: "/contact", key: "nav.contact" },
@@ -107,8 +107,8 @@ export default function AppLayout() {
               {/* Quick action buttons */}
               <div className="flex flex-wrap gap-2">
                 {[
-                  { to: "/donate-books", label: t("nav.donateBooks") },
-                  { to: "/donate-money", label: t("nav.donateMoney") },
+                  { to: "/donatebooks", label: t("nav.donateBooks") },
+                  { to: "/donatemoney", label: t("nav.donateMoney") },
                   { to: "/volunteer", label: t("nav.volunteer") },
                   { to: "/contact", label: t("nav.contact") },
                 ].map((item) => (
@@ -135,7 +135,7 @@ export default function AppLayout() {
                   {[
                     { to: "/", label: t("nav.home") },
                     { to: "/updates", label: t("nav.updates") },
-                    { to: "/how-it-works", label: "How it works" },
+                    { to: "/howitworks", label: "How it works" },
                     { to: "/impact", label: "Impact" },
                   ].map((link) => (
                     <NavLink
@@ -156,8 +156,8 @@ export default function AppLayout() {
                 </div>
                 <div className="grid gap-3">
                   {[
-                    { to: "/donate-books", label: t("nav.donateBooks") },
-                    { to: "/donate-money", label: t("nav.donateMoney") },
+                    { to: "/donatebooks", label: t("nav.donateBooks") },
+                    { to: "/donatemoney", label: t("nav.donateMoney") },
                     { to: "/volunteer", label: t("nav.volunteer") },
                   ].map((link) => (
                     <NavLink
@@ -210,7 +210,7 @@ export default function AppLayout() {
                 </div>
                 <div className="grid gap-3">
                   <NavLink
-                    to="/privacy-policy"
+                    to="/privacypolicy"
                     className="text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-purple"
                   >
                     {t("footer.privacy")}

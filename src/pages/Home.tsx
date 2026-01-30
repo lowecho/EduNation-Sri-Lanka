@@ -48,7 +48,7 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <Button asChild variant="hero" size="xl" className="shadow-lg shadow-primary/25">
-                <Link to="/donate-books">
+                <Link to="/donatebooks">
                   <BookOpen className="h-5 w-5" />
                   {t("home.cta.primary")}
                 </Link>
@@ -287,7 +287,7 @@ export default function Home() {
               ))}
             </div>
             <Button asChild variant="hero" size="lg" className="mt-4">
-              <Link to="/donate-books">
+              <Link to="/donatebooks">
                 <BookOpen className="h-5 w-5" />
                 Donate Books
               </Link>
@@ -344,7 +344,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-              <Link to="/donate-books">
+              <Link to="/donatebooks">
                 <BookOpen className="h-5 w-5" />
                 {t("home.strip.cta")}
               </Link>
