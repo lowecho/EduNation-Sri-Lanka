@@ -27,7 +27,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/breathing-letters">
+        <BrowserRouter basename="/EduNation-Sri-Lanka">
           <ScrollToTop />
           <I18nProvider>
             <Routes>
