@@ -32,7 +32,7 @@ export default function About() {
   const goals = [
     "Collect books in Sinhala, Tamil, and English",
     "Sort, label, and catalogue books with volunteers",
-    "Set up functional, student-friendly library spaces",
+    "Set up functional, student friendly library spaces",
     "Provide ongoing support through book drives and partnerships",
   ];
 
@@ -40,7 +40,7 @@ export default function About() {
     { title: "Transparency", desc: "Every donation is documented with photos and receipts", icon: "🔍" },
     { title: "Community", desc: "Built by volunteers, driven by collective action", icon: "🤝" },
     { title: "Impact", desc: "Measurable results with real stories from schools", icon: "📊" },
-    { title: "Sustainability", desc: "Long-term support, not one-time donations", icon: "🌱" },
+    { title: "Sustainability", desc: "Long term support, not one time donations", icon: "🌱" },
   ];
 
   return (
@@ -129,7 +129,7 @@ export default function About() {
             <span className="text-gradient">Access to Books</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We envision a Sri Lanka where every school has a well-stocked library, where children can discover the joy of reading, and where education is accessible to all regardless of location or economic status.
+            We envision a Sri Lanka where every school has a well stocked library, where children can discover the joy of reading, and where education is accessible to all regardless of location or economic status.
           </p>
           <ul className="space-y-3">
             {goals.map((goal) => (
@@ -185,7 +185,7 @@ export default function About() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
-              <Link to="/donatebooks">
+              <Link to="/donate-books">
                 <BookOpen className="h-5 w-5" />
                 Donate Books
               </Link>

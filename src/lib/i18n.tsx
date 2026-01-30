@@ -22,7 +22,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.cta.official": "Donate Money (Official)",
     "home.trust.transparent": "Transparent updates",
     "home.trust.photos": "Photos & proof of delivery",
-    "home.trust.community": "Community-led project",
+    "home.trust.community": "Community led project",
     "home.how.title": "How it works",
     "home.how.step1": "You pledge or donate books",
     "home.how.step2": "We collect + sort",
@@ -39,7 +39,7 @@ const dictionaries: Record<Language, Dictionary> = {
     // Donate Books
     "donateBooks.title": "Donate Books",
     "donateBooks.description":
-      "Pledge new/used books for students across Sri Lanka. We’ll coordinate pickup/drop-off once you submit.",
+      "Pledge new/used books for students across Sri Lanka. We’ll coordinate pickup/drop off once you submit.",
     "donateBooks.form.title": "Book donation pledge",
     "donateBooks.form.consent": "I agree to be contacted for pickup/dropoff coordination",
     "donateBooks.success.title": "Thank you!",
@@ -54,7 +54,7 @@ const dictionaries: Record<Language, Dictionary> = {
     // Volunteer
     "volunteer.title": "Volunteer / Get Involved",
     "volunteer.description": "Join the community effort. Choose how you can help—every skill matters.",
-    "volunteer.form.title": "Volunteer sign-up",
+    "volunteer.form.title": "Volunteer sign up",
 
     // Donate Money
     "donateMoney.title": "Donate Money (Official)",
@@ -87,7 +87,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "contact.faq": "FAQ",
 
     // Footer
-    "footer.tag": "Community-powered education support for Sri Lanka.",
+    "footer.tag": "Community powered education support for Sri Lanka.",
     "footer.links": "Links",
     "footer.privacy": "Privacy Policy",
 

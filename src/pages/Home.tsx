@@ -32,7 +32,7 @@ export default function Home() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary backdrop-blur-sm">
               <Sparkles className="h-4 w-4" />
-              <span>A community-built library initiative</span>
+              <span>A community built library initiative</span>
             </div>
 
             {/* Main heading */}
@@ -48,7 +48,7 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <Button asChild variant="hero" size="xl" className="shadow-lg shadow-primary/25">
-                <Link to="/donatebooks">
+                <Link to="/donate-books">
                   <BookOpen className="h-5 w-5" />
                   {t("home.cta.primary")}
                 </Link>
@@ -138,7 +138,7 @@ export default function Home() {
               "Primary & secondary textbooks in Sinhala, Tamil, English",
               "Story books to spark imagination",
               "Educational reference materials",
-              "Community-driven, transparent process",
+              "Community driven, transparent process",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 mt-0.5 text-accent-emerald shrink-0" />
@@ -287,7 +287,7 @@ export default function Home() {
               ))}
             </div>
             <Button asChild variant="hero" size="lg" className="mt-4">
-              <Link to="/donatebooks">
+              <Link to="/donate-books">
                 <BookOpen className="h-5 w-5" />
                 Donate Books
               </Link>
@@ -344,7 +344,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-              <Link to="/donatebooks">
+              <Link to="/donate-books">
                 <BookOpen className="h-5 w-5" />
                 {t("home.strip.cta")}
               </Link>
