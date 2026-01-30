@@ -36,7 +36,7 @@ export const updates: UpdateItem[] = [
     id: "kickoff",
     date: "2026-01-10",
     title: "Project kickoff",
-    summary: "Breathing Letters launches with the goal of building a school library with community support.",
+    summary: "EduNation Sri Lanka launches with the goal of building a school library with community support.",
     tags: ["announcement"],
   },
   {

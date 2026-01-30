@@ -27,7 +27,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/breathing-letters">
           <ScrollToTop />
           <I18nProvider>
             <Routes>

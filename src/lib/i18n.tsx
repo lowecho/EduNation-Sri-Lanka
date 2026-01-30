@@ -6,7 +6,7 @@ type Dictionary = Record<string, string>;
 
 const dictionaries: Record<Language, Dictionary> = {
   en: {
-    "app.name": "Breathing Letters",
+    "app.name": "EduNation Sri Lanka",
     "nav.home": "Home",
     "nav.donateBooks": "Donate Books",
     "nav.donateMoney": "Donate Money",
@@ -15,7 +15,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "nav.contact": "Contact",
 
     // Home
-    "home.hero.title": "Breathing Letters",
+    "home.hero.title": "EduNation Sri Lanka",
     "home.hero.subtitle": "Building a school library. Collecting books across Sri Lanka.",
     "home.cta.primary": "Donate Books",
     "home.cta.secondary": "Volunteer",
@@ -33,7 +33,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "Volunteers joined",
     "home.featured.title": "Latest update",
     "home.featured.cta": "Read all updates →",
-    "home.strip.title": "Be part of Breathing Letters — donate a book today.",
+    "home.strip.title": "Be part of EduNation Sri Lanka — donate a book today.",
     "home.strip.cta": "Donate Books",
 
     // Donate Books
@@ -103,7 +103,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "trust.secure": "Secure & Transparent Donations",
   },
   si: {
-    "app.name": "Breathing Letters",
+    "app.name": "EduNation Sri Lanka",
     "nav.home": "මුල් පිටුව",
     "nav.donateBooks": "පොත් පරිත්‍යාග",
     "nav.donateMoney": "මුදල් පරිත්‍යාග (නිල)",
@@ -112,7 +112,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "nav.contact": "සම්බන්ධතා",
 
     // Home
-    "home.hero.title": "Breathing Letters",
+    "home.hero.title": "EduNation Sri Lanka",
     "home.hero.subtitle": "පාසල් පුස්තකාලයක් ගොඩනැගීම. ශ්‍රී ලංකාව පුරා පොත් එකතු කිරීම.",
     "home.cta.primary": "පොත් පරිත්‍යාග කරන්න",
     "home.cta.secondary": "ස්වේච්ඡා වන්න",
@@ -130,7 +130,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "එකතු වූ ස්වේච්ඡා",
     "home.featured.title": "නවතම යාවත්කාලීනය",
     "home.featured.cta": "සියලු යාවත්කාලීන →",
-    "home.strip.title": "Breathing Letters සමඟ එකතු වන්න — අදම පොතක් පරිත්‍යාග කරන්න.",
+    "home.strip.title": "EduNation Sri Lanka සමඟ එකතු වන්න — අදම පොතක් පරිත්‍යාග කරන්න.",
     "home.strip.cta": "පොත් පරිත්‍යාග",
 
     // Donate Books
@@ -190,7 +190,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "trust.secure": "ආරක්ෂිත හා පාරදර්ශී පරිත්‍යාග",
   },
   ta: {
-    "app.name": "Breathing Letters",
+    "app.name": "EduNation Sri Lanka",
     "nav.home": "முகப்பு",
     "nav.donateBooks": "புத்தக நன்கொடை",
     "nav.donateMoney": "பணம் நன்கொடை (அதிகாரம்)",
@@ -199,7 +199,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "nav.contact": "தொடர்பு",
 
     // Home
-    "home.hero.title": "Breathing Letters",
+    "home.hero.title": "EduNation Sri Lanka",
     "home.hero.subtitle": "ஒரு பள்ளி நூலகத்தை உருவாக்குவது. இலங்கை முழுவதும் புத்தகங்களை சேகரிப்பது.",
     "home.cta.primary": "புத்தக நன்கொடை",
     "home.cta.secondary": "தன்னார்வம்",
@@ -217,7 +217,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "சேர்ந்த தன்னார்வலர்கள்",
     "home.featured.title": "சமீபத்திய புதுப்பிப்பு",
     "home.featured.cta": "அனைத்து புதுப்பிப்புகள் →",
-    "home.strip.title": "Breathing Letters-இல் பங்கேளுங்கள் — இன்று ஒரு புத்தகம் நன்கொடையளியுங்கள்.",
+    "home.strip.title": "EduNation Sri Lanka-இல் பங்கேளுங்கள் — இன்று ஒரு புத்தகம் நன்கொடையளியுங்கள்.",
     "home.strip.cta": "புத்தக நன்கொடை",
 
     // Donate Books

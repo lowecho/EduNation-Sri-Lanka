@@ -5,28 +5,41 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        hero: "bg-foreground text-background shadow-ink hover:bg-foreground/90",
-        soft: "bg-secondary text-secondary-foreground hover:bg-secondary/75",
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0",
+        hero:
+          "bg-gradient-to-r from-primary via-accent-emerald to-accent-cyan text-white shadow-lg hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-1 active:translate-y-0 bg-[length:200%_100%] hover:bg-right transition-all duration-500",
+        soft:
+          "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-md",
         outlineHero:
-          "border border-input bg-background/50 text-foreground shadow-soft hover:bg-accent hover:text-accent-foreground backdrop-blur",
-        gov: "bg-foreground text-background shadow-ink hover:bg-foreground/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/75",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "border-2 border-primary/30 bg-background/50 text-foreground shadow-sm hover:border-primary hover:bg-primary/5 hover:shadow-md backdrop-blur-sm",
+        gov:
+          "bg-gradient-to-r from-foreground to-foreground/90 text-background shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg",
+        outline:
+          "border-2 border-border bg-background hover:bg-accent hover:text-accent-foreground hover:border-primary/30 hover:shadow-md",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-md",
+        ghost:
+          "hover:bg-accent hover:text-accent-foreground",
+        link:
+          "text-primary underline-offset-4 hover:underline",
+        gradient:
+          "bg-gradient-to-r from-accent-gold to-accent-coral text-white shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0",
+        glass:
+          "bg-white/10 backdrop-blur-md border border-white/20 text-foreground hover:bg-white/20 hover:shadow-lg",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        xl: "h-12 rounded-md px-9 text-base",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 py-2.5",
+        sm: "h-9 rounded-lg px-4 text-xs",
+        lg: "h-12 rounded-xl px-8 text-base",
+        xl: "h-14 rounded-2xl px-10 text-lg",
+        icon: "h-11 w-11 rounded-xl",
       },
     },
     defaultVariants: {
@@ -38,7 +51,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
