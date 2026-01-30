@@ -232,7 +232,7 @@ export default function Home() {
             Become a <span className="text-gradient">Volunteer</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Join our community of passionate volunteers who are making a real difference. Whether you can help with sorting books, coordinating logistics, or setting up libraries—every contribution matters.
+            Join our community of passionate volunteers who are making a real difference. Whether you can help with sorting books, coordinating logistics, or setting up libraries every contribution matters.
           </p>
           <div className="flex flex-wrap gap-3">
             {["Event Support", "Book Sorting", "Logistics", "Photography"].map((role) => (

@@ -15,7 +15,7 @@ export default function DonateFunds() {
     { icon: "🚚", title: "Transport", desc: "Moving books from donors to schools" },
     { icon: "📚", title: "Shelving", desc: "Library furniture and book shelves" },
     { icon: "🏷️", title: "Cataloguing", desc: "Labels, stamps, and organization" },
-    { icon: "🔧", title: "Maintenance", desc: "Long term upkeep and repairs" },
+    { icon: "🔧", title: "Maintenance", desc: "Long-term upkeep and repairs" },
   ];
 
   return (
@@ -143,7 +143,7 @@ export default function DonateFunds() {
             <h3 className="text-xl font-bold">Why Funds Matter</h3>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Books alone don't make a library. Transport costs, shelving, cataloguing supplies, and long term maintenance all require funding. Your financial contribution ensures every donated book reaches students in the best possible way.
+            Books alone don't make a library. Transport costs, shelving, cataloguing supplies, and long-term maintenance all require funding. Your financial contribution ensures every donated book reaches students in the best possible way.
           </p>
         </div>
 

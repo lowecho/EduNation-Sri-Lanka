@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
 
         <h3 className="mt-6 text-lg font-semibold">How we use it</h3>
         <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-          <li>To coordinate pickup/drop off and volunteer next steps</li>
+          <li>To coordinate pickup/drop-off and volunteer next steps</li>
           <li>To respond to your questions</li>
         </ul>
       </section>

@@ -22,7 +22,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.cta.official": "Donate Money (Official)",
     "home.trust.transparent": "Transparent updates",
     "home.trust.photos": "Photos & proof of delivery",
-    "home.trust.community": "Community led project",
+    "home.trust.community": "Community-led project",
     "home.how.title": "How it works",
     "home.how.step1": "You pledge or donate books",
     "home.how.step2": "We collect + sort",
@@ -33,7 +33,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "Volunteers joined",
     "home.featured.title": "Latest update",
     "home.featured.cta": "Read all updates →",
-    "home.strip.title": "Be part of EduNation Sri Lanka — donate a book today.",
+    "home.strip.title": "Be part of EduNation Sri Lanka, donate a book today.",
     "home.strip.cta": "Donate Books",
 
     // Donate Books
@@ -53,8 +53,8 @@ const dictionaries: Record<Language, Dictionary> = {
 
     // Volunteer
     "volunteer.title": "Volunteer / Get Involved",
-    "volunteer.description": "Join the community effort. Choose how you can help—every skill matters.",
-    "volunteer.form.title": "Volunteer sign up",
+    "volunteer.description": "Join the community effort. Choose how you can help every skill matters.",
+    "volunteer.form.title": "Volunteer sign-up",
 
     // Donate Money
     "donateMoney.title": "Donate Money (Official)",
@@ -87,7 +87,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "contact.faq": "FAQ",
 
     // Footer
-    "footer.tag": "Community powered education support for Sri Lanka.",
+    "footer.tag": "Community-powered education support for Sri Lanka.",
     "footer.links": "Links",
     "footer.privacy": "Privacy Policy",
 
@@ -130,7 +130,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "එකතු වූ ස්වේච්ඡා",
     "home.featured.title": "නවතම යාවත්කාලීනය",
     "home.featured.cta": "සියලු යාවත්කාලීන →",
-    "home.strip.title": "EduNation Sri Lanka සමඟ එකතු වන්න — අදම පොතක් පරිත්‍යාග කරන්න.",
+    "home.strip.title": "EduNation Sri Lanka සමඟ එකතු වන්න, අදම පොතක් පරිත්‍යාග කරන්න.",
     "home.strip.cta": "පොත් පරිත්‍යාග",
 
     // Donate Books
@@ -217,7 +217,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "home.stats.volunteers": "சேர்ந்த தன்னார்வலர்கள்",
     "home.featured.title": "சமீபத்திய புதுப்பிப்பு",
     "home.featured.cta": "அனைத்து புதுப்பிப்புகள் →",
-    "home.strip.title": "EduNation Sri Lanka-இல் பங்கேளுங்கள் — இன்று ஒரு புத்தகம் நன்கொடையளியுங்கள்.",
+    "home.strip.title": "EduNation Sri Lanka-இல் பங்கேளுங்கள், இன்று ஒரு புத்தகம் நன்கொடையளியுங்கள்.",
     "home.strip.cta": "புத்தக நன்கொடை",
 
     // Donate Books
