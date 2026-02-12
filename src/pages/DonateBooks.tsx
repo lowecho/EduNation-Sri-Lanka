@@ -11,17 +11,28 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useI18n } from "@/lib/i18n";
+import { supabase } from "@/lib/supabase";
 
 // Import images
 import booksImage from "@/assets/books-stack.png";
 import heroImage from "@/assets/hero-children.png";
 
+const SRI_LANKA_DISTRICTS = [
+  "Ampara", "Anuradhapura", "Badulla", "Batticaloa", "Colombo",
+  "Galle", "Gampaha", "Hambantota", "Jaffna", "Kalutara",
+  "Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar",
+  "Matale", "Matara", "Monaragala", "Mullaitivu", "Nuwara Eliya",
+  "Polonnaruwa", "Puttalam", "Ratnapura", "Trincomalee", "Vavuniya",
+] as const;
+
 const bookTypeEnum = z.enum(["kids", "school", "novels", "educational", "other"]);
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
-  phone: z.string().trim().min(7, "Please enter a valid phone/WhatsApp").max(30),
+  phone: z.string().trim().max(30).optional().or(z.literal("")),
+  email: z.string().trim().email("Please enter a valid email address").optional().or(z.literal("")),
   district: z.string().trim().min(2, "Please enter your district").max(60),
   city: z.string().trim().min(2, "Please enter your city").max(80),
   bookTypes: z.array(bookTypeEnum).min(1, "Select at least one book type"),
@@ -39,6 +50,7 @@ export default function DonateBooks() {
     () => ({
       name: "",
       phone: "",
+      email: "",
       district: "",
       city: "",
       bookTypes: [],
@@ -59,14 +71,39 @@ export default function DonateBooks() {
     reset,
   } = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: defaults });
 
-  const onSubmit = (values: FormValues) => {
-    toast.success("Donation pledge received! 🎉");
-    setSubmitted(values);
+
+
+  const onSubmit = async (values: FormValues) => {
+    try {
+      const { error } = await supabase.from('book_donations').insert([
+        {
+          name: values.name,
+          phone: values.phone,
+          email: values.email,
+          district: values.district,
+          city: values.city,
+          book_types: values.bookTypes,
+          quantity: values.quantity,
+          condition: values.condition,
+          message: values.message,
+          created_at: new Date().toISOString(),
+        }
+      ]);
+
+      if (error) throw error;
+
+      toast.success("Donation pledge received! 🎉");
+      setSubmitted(values);
+    } catch (error) {
+      console.error('Error submitting donation:', error);
+      toast.error("Failed to submit donation. Please try again.");
+    }
   };
 
   const shareOnWhatsApp = () => {
-    const url = typeof window !== "undefined" ? window.location.origin : "";
-    const text = `I just pledged books for EduNation Sri Lanka. Join me: ${url}`;
+    const text = `📚 I just pledged a book donation with EduNation Sri Lanka!
+Join me in supporting education and helping students grow. 🌟
+Make your pledge here: testtttt.com`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
   };
 
@@ -178,7 +215,7 @@ export default function DonateBooks() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="font-medium">Phone / WhatsApp</Label>
+                  <Label htmlFor="phone" className="font-medium">Phone / WhatsApp <span className="text-muted-foreground font-normal">(Optional)</span></Label>
                   <Input
                     id="phone"
                     autoComplete="tel"
@@ -189,14 +226,38 @@ export default function DonateBooks() {
                   {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
                 </div>
 
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="email" className="font-medium">Email <span className="text-muted-foreground font-normal">(Optional)</span></Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    className="h-12 rounded-xl border-border/50 bg-background/50"
+                    placeholder="your.email@example.com"
+                    {...register("email")}
+                  />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+                </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="district" className="font-medium">District</Label>
-                  <Input
-                    id="district"
-                    autoComplete="address-level1"
-                    className="h-12 rounded-xl border-border/50 bg-background/50"
-                    placeholder="Your district"
-                    {...register("district")}
+                  <Controller
+                    control={control}
+                    name="district"
+                    render={({ field }) => (
+                      <Select value={field.value} onValueChange={field.onChange}>
+                        <SelectTrigger id="district" className="h-12 rounded-xl border-border/50 bg-background/50">
+                          <SelectValue placeholder="Select your district" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {SRI_LANKA_DISTRICTS.map((district) => (
+                            <SelectItem key={district} value={district}>
+                              {district}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
                   />
                   {errors.district && <p className="text-sm text-destructive">{errors.district.message}</p>}
                 </div>
@@ -288,7 +349,7 @@ export default function DonateBooks() {
                 </div>
 
                 <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="message" className="font-medium">Optional Message</Label>
+                  <Label htmlFor="message" className="font-medium">Message <span className="text-muted-foreground font-normal">(Optional)</span></Label>
                   <Textarea
                     id="message"
                     rows={4}

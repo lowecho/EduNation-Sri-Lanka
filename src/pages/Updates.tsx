@@ -4,6 +4,15 @@ import { Badge, type BadgeProps } from "@/components/ui/badge";
 import { useI18n } from "@/lib/i18n";
 import { gallery, proof, roadmapMilestones, roadmapPhases, sortByDateDesc, updates } from "@/lib/updatesData";
 import { CalendarDays, CheckCircle2, Clock3, Route, Truck, Users } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 function StatusBadge({ status }: { status: "completed" | "ongoing" | "planned" }) {
   const { t } = useI18n();
@@ -24,6 +33,51 @@ function StatusBadge({ status }: { status: "completed" | "ongoing" | "planned" }
     </Badge>
   );
 }
+
+const GalleryCard = ({ item }: { item: (typeof gallery)[0] }) => {
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
+  return (
+    <figure className="overflow-hidden rounded-xl border border-border bg-background/60">
+      {item.images && item.images.length > 0 ? (
+        <Carousel
+          plugins={[autoplayPlugin.current]}
+          className="w-full"
+          onMouseEnter={autoplayPlugin.current.stop}
+          onMouseLeave={autoplayPlugin.current.reset}
+          opts={{
+            loop: true,
+          }}
+        >
+          <CarouselContent>
+            {item.images.map((imgSrc, index) => (
+              <CarouselItem key={index}>
+                <AspectRatio ratio={4 / 3}>
+                  <img
+                    src={imgSrc}
+                    alt={`${item.alt} ${index + 1}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </AspectRatio>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      ) : (
+        <AspectRatio ratio={4 / 3}>
+          <img src={item.src} alt={item.alt} loading="lazy" className="h-full w-full object-cover" />
+        </AspectRatio>
+      )}
+      <figcaption className="p-4">
+        <div className="text-sm font-medium">{item.caption}</div>
+        {item.date ? <div className="mt-1 text-xs text-muted-foreground">{item.date}</div> : null}
+      </figcaption>
+    </figure>
+  );
+};
 
 export default function Updates() {
   const { t } = useI18n();
@@ -147,16 +201,8 @@ export default function Updates() {
           {t("updates.gallery")}
         </h3>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gallery.map((m) => (
-            <figure key={m.caption} className="overflow-hidden rounded-xl border border-border bg-background/60">
-              <AspectRatio ratio={4 / 3}>
-                <img src={m.src} alt={m.alt} loading="lazy" className="h-full w-full object-cover" />
-              </AspectRatio>
-              <figcaption className="p-4">
-                <div className="text-sm font-medium">{m.caption}</div>
-                {m.date ? <div className="mt-1 text-xs text-muted-foreground">{m.date}</div> : null}
-              </figcaption>
-            </figure>
+          {gallery.map((m, idx) => (
+            <GalleryCard key={m.caption + idx} item={m} />
           ))}
         </div>
 

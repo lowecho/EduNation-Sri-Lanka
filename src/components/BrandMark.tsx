@@ -1,4 +1,4 @@
-import logo from "@/assets/breathing-letters-logo.png";
+import logo from "@/assets/edunation.png";
 import { NavLink } from "@/components/NavLink";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   size?: "sm" | "md" | "lg";
 };
 
-export default function BrandMark({ label, compactLabel = "BL", size = "md" }: Props) {
+export default function BrandMark({ label, compactLabel = "EN", size = "md" }: Props) {
   const imgSize = size === "sm" ? "h-10 w-10" : size === "lg" ? "h-14 w-14" : "h-12 w-12";
   const labelClass =
     size === "lg"
@@ -24,7 +24,7 @@ export default function BrandMark({ label, compactLabel = "BL", size = "md" }: P
       {/* Logo container with glow effect */}
       <div className="relative">
         {/* Animated glow ring */}
-        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent-emerald to-accent-cyan opacity-0 blur-md transition-all duration-500 group-hover:opacity-50 group-hover:blur-lg" />
+        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-accent-green via-accent-purple to-accent-blue opacity-0 blur-md transition-all duration-500 group-hover:opacity-50 group-hover:blur-lg" />
 
         {/* Logo image */}
         <img
@@ -48,7 +48,7 @@ export default function BrandMark({ label, compactLabel = "BL", size = "md" }: P
 
         {/* Compact label for mobile */}
         <span
-          className={`bg-gradient-to-r from-primary to-accent-cyan bg-clip-text text-transparent sm:hidden ${labelClass}`}
+          className={`bg-gradient-to-r from-primary to-accent-purple bg-clip-text text-transparent sm:hidden ${labelClass}`}
         >
           {compactLabel}
         </span>
@@ -56,7 +56,7 @@ export default function BrandMark({ label, compactLabel = "BL", size = "md" }: P
         {/* Tagline - only show in large size */}
         {size === "lg" && (
           <span className="hidden text-xs font-medium text-muted-foreground sm:inline">
-            Building libraries, opening doors
+            Education, Collaboration, Growth
           </span>
         )}
       </div>

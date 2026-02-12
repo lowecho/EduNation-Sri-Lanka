@@ -23,7 +23,7 @@ export default function AppLayout() {
       {/* Background decorations */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-accent-emerald/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-accent-purple/5 blur-3xl" />
       </div>
 
       {/* Skip link for accessibility */}
@@ -54,7 +54,7 @@ export default function AppLayout() {
                 >
                   {t(n.key)}
                   {/* Animated underline */}
-                  <span className="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary to-accent-cyan transition-all duration-300 group-hover:w-1/2" />
+                  <span className="absolute bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary to-accent-purple transition-all duration-300 group-hover:w-1/2" />
                 </NavLink>
               ))}
             </nav>
@@ -151,7 +151,7 @@ export default function AppLayout() {
 
               {/* Get Involved */}
               <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent-emerald">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent-green">
                   Get Involved
                 </div>
                 <div className="grid gap-3">
@@ -163,7 +163,7 @@ export default function AppLayout() {
                     <NavLink
                       key={link.to}
                       to={link.to}
-                      className="text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-emerald focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {link.label}
                     </NavLink>
@@ -173,20 +173,20 @@ export default function AppLayout() {
 
               {/* Contact */}
               <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent-cyan">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent-blue">
                   Contact
                 </div>
                 <div className="grid gap-3">
                   <NavLink
                     to="/contact"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-cyan"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-blue"
                   >
                     <MapPin className="h-4 w-4" />
                     Contact page
                   </NavLink>
                   <a
                     href="mailto:library.project@example.com"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-cyan"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-blue"
                   >
                     <Mail className="h-4 w-4" />
                     Email us
@@ -195,7 +195,7 @@ export default function AppLayout() {
                     href="https://wa.me/94XXXXXXXXX"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-cyan"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-accent-blue"
                   >
                     <Phone className="h-4 w-4" />
                     WhatsApp
@@ -246,7 +246,7 @@ export default function AppLayout() {
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Made with</span>
-              <Heart className="h-4 w-4 text-accent-coral animate-pulse" />
+              <Heart className="h-4 w-4 text-accent-red animate-pulse" />
               <span>for education</span>
             </div>
           </div>

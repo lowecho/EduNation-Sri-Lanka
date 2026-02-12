@@ -1,251 +1,302 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   EDUNATION SRI LANKA - Premium Design System
-   A modern, vibrant theme inspired by growth, knowledge, and community
+   EDUNATION SRI LANKA — Premium Design System v2.0
+   Inspired by the brand logo: open book + two figures of learning
+   Colors: Green (growth), Purple (innovation), Orange (energy),
+           Red (passion), Blue (trust), Gold (excellence)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
     /* ─────────────────────────────────────────────────────────────────────────
-       LIGHT MODE - Fresh, vibrant, and welcoming
+       LIGHT MODE — Clean, bright, welcoming, educational
        ───────────────────────────────────────────────────────────────────────── */
 
-    /* Base colors - warm cream background */
-    --background: 40 30% 98%;
-    --foreground: 222 47% 11%;
+    /* Base surfaces */
+    --background: 60 20% 98%;
+    --foreground: 240 24% 12%;
 
-    /* Card surfaces - pure white with depth */
+    /* Card surfaces — crisp white */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 240 24% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 240 24% 12%;
 
-    /* Primary - Vibrant Teal (represents growth & knowledge) */
-    --primary: 168 80% 38%;
+    /* ─── PRIMARY: Brand Green (Growth & Learning) ─── */
+    --primary: 145 65% 36%;
     --primary-foreground: 0 0% 100%;
 
-    /* Accent colors for variety */
-    --accent-teal: 168 80% 38%;
-    --accent-emerald: 152 68% 42%;
-    --accent-cyan: 186 76% 48%;
-    --accent-gold: 38 92% 55%;
-    --accent-coral: 12 90% 62%;
-    --accent-purple: 262 83% 58%;
+    /* ─── SECONDARY: Brand Purple (Innovation & Intelligence) ─── */
+    --secondary: 270 55% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Secondary - Subtle teal tint */
-    --secondary: 168 25% 94%;
-    --secondary-foreground: 168 80% 24%;
+    /* ─── BRAND ACCENT PALETTE (from logo) ─── */
+    --accent-green: 145 65% 36%;
+    --accent-lime: 78 65% 52%;
+    --accent-orange: 30 92% 55%;
+    --accent-red: 0 78% 52%;
+    --accent-purple: 270 55% 50%;
+    --accent-blue: 200 80% 65%;
+    --accent-peach: 20 85% 78%;
+    --accent-indigo: 262 60% 40%;
+
+    /* Legacy accent tokens (backward compat) */
+    --accent-teal: 145 65% 36%;
+    --accent-emerald: 145 58% 42%;
+    --accent-cyan: 200 80% 65%;
+    --accent-gold: 30 92% 55%;
+    --accent-coral: 0 78% 52%;
 
     /* Muted for less prominent elements */
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 8% 46%;
+    --muted: 240 10% 94%;
+    --muted-foreground: 240 6% 46%;
 
-    /* Accent for highlights */
-    --accent: 168 30% 92%;
-    --accent-foreground: 168 80% 28%;
+    /* Accent highlight surface */
+    --accent: 145 25% 93%;
+    --accent-foreground: 145 65% 28%;
 
     /* States */
-    --destructive: 0 84% 60%;
+    --destructive: 0 78% 52%;
     --destructive-foreground: 0 0% 100%;
+    --success: 145 65% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 30 92% 55%;
+    --warning-foreground: 0 0% 100%;
+    --info: 200 80% 50%;
+    --info-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
-    --ring: 168 80% 45%;
+    --border: 240 10% 88%;
+    --input: 240 10% 88%;
+    --ring: 145 65% 42%;
 
     --radius: 0.75rem;
 
-    /* ─────────────────────────────────────────────────────────────────────────
-       PREMIUM EFFECTS - Shadows, gradients, and glows
-       ───────────────────────────────────────────────────────────────────────── */
+    /* ─── PREMIUM SHADOWS ─── */
+    --shadow-xs: 0 1px 2px hsl(var(--foreground) / 0.04);
+    --shadow-sm: 0 2px 8px -2px hsl(var(--foreground) / 0.07),
+      0 4px 16px -4px hsl(var(--foreground) / 0.05);
+    --shadow-md: 0 4px 16px -4px hsl(var(--foreground) / 0.09),
+      0 8px 32px -8px hsl(var(--foreground) / 0.07);
+    --shadow-lg: 0 8px 32px -8px hsl(var(--foreground) / 0.11),
+      0 16px 48px -16px hsl(var(--foreground) / 0.09);
+    --shadow-xl: 0 16px 48px -16px hsl(var(--foreground) / 0.13),
+      0 32px 64px -32px hsl(var(--foreground) / 0.11);
 
-    /* Layered shadows for depth */
-    --shadow-xs: 0 1px 2px hsl(var(--foreground) / 0.05);
-    --shadow-sm: 0 2px 8px -2px hsl(var(--foreground) / 0.08),
-      0 4px 16px -4px hsl(var(--foreground) / 0.06);
-    --shadow-md: 0 4px 16px -4px hsl(var(--foreground) / 0.1),
-      0 8px 32px -8px hsl(var(--foreground) / 0.08);
-    --shadow-lg: 0 8px 32px -8px hsl(var(--foreground) / 0.12),
-      0 16px 48px -16px hsl(var(--foreground) / 0.1);
-    --shadow-xl: 0 16px 48px -16px hsl(var(--foreground) / 0.14),
-      0 32px 64px -32px hsl(var(--foreground) / 0.12);
+    /* Colored brand shadows */
+    --shadow-primary: 0 8px 32px -8px hsl(var(--primary) / 0.30),
+      0 16px 48px -16px hsl(var(--primary) / 0.20);
+    --shadow-purple: 0 8px 32px -8px hsl(var(--secondary) / 0.30),
+      0 16px 48px -16px hsl(var(--secondary) / 0.20);
+    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.12),
+      0 0 64px hsl(var(--primary) / 0.06);
 
-    /* Colored shadows */
-    --shadow-primary: 0 8px 32px -8px hsl(var(--primary) / 0.35),
-      0 16px 48px -16px hsl(var(--primary) / 0.25);
-    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.15),
-      0 0 64px hsl(var(--primary) / 0.08);
-
-    /* Gradient definitions */
+    /* ─── BRAND GRADIENTS ─── */
     --gradient-primary: linear-gradient(135deg,
-        hsl(168 80% 38%) 0%,
-        hsl(152 68% 42%) 50%,
-        hsl(186 76% 48%) 100%);
+        hsl(145 65% 36%) 0%,
+        hsl(78 65% 52%) 100%);
+    --gradient-secondary: linear-gradient(135deg,
+        hsl(270 55% 50%) 0%,
+        hsl(200 80% 65%) 100%);
     --gradient-hero: linear-gradient(135deg,
-        hsl(168 80% 38%) 0%,
-        hsl(262 83% 58%) 100%);
+        hsl(145 65% 36%) 0%,
+        hsl(270 55% 50%) 50%,
+        hsl(200 80% 65%) 100%);
     --gradient-warm: linear-gradient(135deg,
-        hsl(38 92% 55%) 0%,
-        hsl(12 90% 62%) 100%);
+        hsl(30 92% 55%) 0%,
+        hsl(0 78% 52%) 100%);
+    --gradient-rainbow: linear-gradient(135deg,
+        hsl(145 65% 36%) 0%,
+        hsl(78 65% 52%) 20%,
+        hsl(30 92% 55%) 40%,
+        hsl(0 78% 52%) 60%,
+        hsl(270 55% 50%) 80%,
+        hsl(200 80% 65%) 100%);
     --gradient-surface: linear-gradient(145deg,
         hsl(var(--background)) 0%,
-        hsl(168 20% 96%) 100%);
+        hsl(145 15% 96%) 100%);
     --gradient-text: linear-gradient(135deg,
-        hsl(168 80% 38%) 0%,
-        hsl(186 76% 48%) 100%);
+        hsl(145 65% 36%) 0%,
+        hsl(270 55% 50%) 100%);
 
-    /* Glassmorphism effects */
-    --glass-bg: hsl(0 0% 100% / 0.7);
-    --glass-border: hsl(0 0% 100% / 0.3);
+    /* ─── GLASSMORPHISM ─── */
+    --glass-bg: hsl(0 0% 100% / 0.72);
+    --glass-border: hsl(0 0% 100% / 0.35);
     --glass-shadow: 0 8px 32px hsl(var(--foreground) / 0.06);
 
-    /* Hero glow - dynamic mouse-following effect */
+    /* ─── HERO GLOW ─── */
     --hero-glow:
       radial-gradient(600px circle at var(--mx, 50%) var(--my, 30%),
-        hsl(168 80% 50% / 0.12), transparent 50%),
-      radial-gradient(400px circle at calc(var(--mx, 50%) + 100px) calc(var(--my, 30%) + 50px),
-        hsl(186 76% 48% / 0.08), transparent 50%),
-      radial-gradient(800px circle at calc(var(--mx, 50%) - 80px) calc(var(--my, 30%) - 30px),
-        hsl(152 68% 42% / 0.06), transparent 50%);
+        hsl(145 65% 50% / 0.10), transparent 50%),
+      radial-gradient(400px circle at calc(var(--mx, 50%) + 120px) calc(var(--my, 30%) + 60px),
+        hsl(270 55% 50% / 0.08), transparent 50%),
+      radial-gradient(500px circle at calc(var(--mx, 50%) - 100px) calc(var(--my, 30%) - 40px),
+        hsl(30 92% 55% / 0.06), transparent 50%);
 
-    /* Decorative patterns */
+    /* ─── PATTERNS ─── */
     --pattern-dots: radial-gradient(circle at center,
-        hsl(var(--foreground) / 0.08) 1px,
+        hsl(var(--foreground) / 0.07) 1px,
         transparent 1px);
-    --pattern-grid: linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+    --pattern-grid: linear-gradient(to right, hsl(var(--foreground) / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
     --pattern-size: 24px;
 
-    /* Sidebar (keeping existing structure) */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 168 80% 38%;
+    /* ─── SIDEBAR ─── */
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 145 65% 36%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 168 20% 95%;
-    --sidebar-accent-foreground: 168 80% 28%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 168 80% 45%;
+    --sidebar-accent: 145 18% 95%;
+    --sidebar-accent-foreground: 145 65% 28%;
+    --sidebar-border: 240 10% 91%;
+    --sidebar-ring: 145 65% 42%;
   }
 
   /* ─────────────────────────────────────────────────────────────────────────
-     DARK MODE - Rich, sophisticated, and immersive
+     DARK MODE — Rich, premium, elegant, low-eye-strain
      ───────────────────────────────────────────────────────────────────────── */
   .dark {
-    /* Base colors - deep, rich background */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    /* Base: deep blue-gray for premium feel */
+    --background: 230 25% 7%;
+    --foreground: 210 30% 94%;
 
-    /* Card surfaces - elevated dark cards */
-    --card: 222 47% 9%;
-    --card-foreground: 210 40% 96%;
+    /* Cards: slightly elevated */
+    --card: 230 22% 10%;
+    --card-foreground: 210 30% 94%;
 
-    --popover: 222 47% 9%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 230 22% 10%;
+    --popover-foreground: 210 30% 94%;
 
-    /* Primary - Brighter teal for dark mode visibility */
-    --primary: 168 72% 52%;
-    --primary-foreground: 222 47% 8%;
+    /* Primary green — brighter for dark mode */
+    --primary: 145 60% 48%;
+    --primary-foreground: 230 25% 7%;
 
-    /* Accent colors - slightly brighter for dark mode */
-    --accent-teal: 168 72% 52%;
-    --accent-emerald: 152 60% 52%;
-    --accent-cyan: 186 70% 58%;
-    --accent-gold: 38 88% 60%;
-    --accent-coral: 12 85% 65%;
-    --accent-purple: 262 78% 65%;
+    /* Secondary purple — brighter for dark mode */
+    --secondary: 270 50% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Secondary */
-    --secondary: 222 35% 14%;
-    --secondary-foreground: 168 50% 70%;
+    /* Brand accents — slightly brighter */
+    --accent-green: 145 60% 48%;
+    --accent-lime: 78 60% 56%;
+    --accent-orange: 30 88% 60%;
+    --accent-red: 0 72% 58%;
+    --accent-purple: 270 50% 60%;
+    --accent-blue: 200 75% 68%;
+    --accent-peach: 20 80% 75%;
+    --accent-indigo: 262 55% 55%;
+
+    /* Legacy compat */
+    --accent-teal: 145 60% 48%;
+    --accent-emerald: 145 55% 50%;
+    --accent-cyan: 200 75% 68%;
+    --accent-gold: 30 88% 60%;
+    --accent-coral: 0 72% 58%;
 
     /* Muted */
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 16% 55%;
+    --muted: 230 18% 14%;
+    --muted-foreground: 220 12% 52%;
 
     /* Accent */
-    --accent: 222 35% 15%;
-    --accent-foreground: 168 60% 70%;
+    --accent: 230 20% 15%;
+    --accent-foreground: 145 55% 65%;
 
     /* States */
-    --destructive: 0 72% 50%;
+    --destructive: 0 68% 52%;
     --destructive-foreground: 0 0% 100%;
+    --success: 145 55% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 30 85% 58%;
+    --warning-foreground: 0 0% 100%;
+    --info: 200 70% 58%;
+    --info-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 222 25% 18%;
-    --input: 222 25% 18%;
-    --ring: 168 72% 52%;
+    --border: 230 18% 18%;
+    --input: 230 18% 18%;
+    --ring: 145 60% 48%;
 
-    /* Dark mode shadows - more subtle but with glow */
-    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.3);
-    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.4),
-      0 4px 16px -4px hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.5),
-      0 8px 32px -8px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.6),
-      0 16px 48px -16px hsl(0 0% 0% / 0.5);
-    --shadow-xl: 0 16px 48px -16px hsl(0 0% 0% / 0.7),
-      0 32px 64px -32px hsl(0 0% 0% / 0.6);
+    /* Dark shadows with subtle glow */
+    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.25);
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.35),
+      0 4px 16px -4px hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.45),
+      0 8px 32px -8px hsl(0 0% 0% / 0.35);
+    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.55),
+      0 16px 48px -16px hsl(0 0% 0% / 0.45);
+    --shadow-xl: 0 16px 48px -16px hsl(0 0% 0% / 0.6),
+      0 32px 64px -32px hsl(0 0% 0% / 0.5);
 
-    /* Colored shadows with glow */
-    --shadow-primary: 0 0 16px hsl(var(--primary) / 0.2),
-      0 8px 32px -8px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 48px hsl(var(--primary) / 0.25),
-      0 0 96px hsl(var(--primary) / 0.15);
+    --shadow-primary: 0 0 16px hsl(var(--primary) / 0.18),
+      0 8px 32px -8px hsl(var(--primary) / 0.25);
+    --shadow-purple: 0 0 16px hsl(var(--secondary) / 0.18),
+      0 8px 32px -8px hsl(var(--secondary) / 0.25);
+    --shadow-glow: 0 0 48px hsl(var(--primary) / 0.20),
+      0 0 96px hsl(var(--primary) / 0.12);
 
-    /* Dark mode gradients */
+    /* Dark gradients */
     --gradient-primary: linear-gradient(135deg,
-        hsl(168 72% 52%) 0%,
-        hsl(152 60% 52%) 50%,
-        hsl(186 70% 58%) 100%);
+        hsl(145 60% 48%) 0%,
+        hsl(78 60% 56%) 100%);
+    --gradient-secondary: linear-gradient(135deg,
+        hsl(270 50% 60%) 0%,
+        hsl(200 75% 68%) 100%);
     --gradient-hero: linear-gradient(135deg,
-        hsl(168 72% 52%) 0%,
-        hsl(262 78% 65%) 100%);
+        hsl(145 60% 48%) 0%,
+        hsl(270 50% 60%) 50%,
+        hsl(200 75% 68%) 100%);
     --gradient-warm: linear-gradient(135deg,
-        hsl(38 88% 60%) 0%,
-        hsl(12 85% 65%) 100%);
+        hsl(30 88% 60%) 0%,
+        hsl(0 72% 58%) 100%);
+    --gradient-rainbow: linear-gradient(135deg,
+        hsl(145 60% 48%) 0%,
+        hsl(78 60% 56%) 20%,
+        hsl(30 88% 60%) 40%,
+        hsl(0 72% 58%) 60%,
+        hsl(270 50% 60%) 80%,
+        hsl(200 75% 68%) 100%);
     --gradient-surface: linear-gradient(145deg,
-        hsl(222 47% 8%) 0%,
-        hsl(222 40% 10%) 100%);
+        hsl(230 25% 8%) 0%,
+        hsl(230 20% 11%) 100%);
     --gradient-text: linear-gradient(135deg,
-        hsl(168 72% 52%) 0%,
-        hsl(186 70% 58%) 100%);
+        hsl(145 60% 48%) 0%,
+        hsl(270 50% 60%) 100%);
 
-    /* Glassmorphism - darker glass */
-    --glass-bg: hsl(222 47% 10% / 0.8);
+    /* Dark glass */
+    --glass-bg: hsl(230 22% 12% / 0.80);
     --glass-border: hsl(0 0% 100% / 0.08);
-    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.35);
 
-    /* Hero glow for dark mode */
+    /* Dark hero glow */
     --hero-glow:
       radial-gradient(600px circle at var(--mx, 50%) var(--my, 30%),
-        hsl(168 72% 52% / 0.15), transparent 50%),
-      radial-gradient(400px circle at calc(var(--mx, 50%) + 100px) calc(var(--my, 30%) + 50px),
-        hsl(186 70% 58% / 0.10), transparent 50%),
-      radial-gradient(800px circle at calc(var(--mx, 50%) - 80px) calc(var(--my, 30%) - 30px),
-        hsl(262 78% 65% / 0.08), transparent 50%);
+        hsl(145 60% 48% / 0.12), transparent 50%),
+      radial-gradient(400px circle at calc(var(--mx, 50%) + 120px) calc(var(--my, 30%) + 60px),
+        hsl(270 50% 60% / 0.10), transparent 50%),
+      radial-gradient(500px circle at calc(var(--mx, 50%) - 100px) calc(var(--my, 30%) - 40px),
+        hsl(30 88% 60% / 0.08), transparent 50%);
 
-    /* Dark mode patterns */
+    /* Dark patterns */
     --pattern-dots: radial-gradient(circle at center,
-        hsl(var(--foreground) / 0.06) 1px,
+        hsl(var(--foreground) / 0.05) 1px,
         transparent 1px);
-    --pattern-grid: linear-gradient(to right, hsl(var(--foreground) / 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    --pattern-grid: linear-gradient(to right, hsl(var(--foreground) / 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.025) 1px, transparent 1px);
 
-    /* Sidebar dark mode */
-    --sidebar-background: 222 47% 7%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 168 72% 52%;
-    --sidebar-primary-foreground: 222 47% 8%;
-    --sidebar-accent: 222 35% 14%;
-    --sidebar-accent-foreground: 168 60% 70%;
-    --sidebar-border: 222 25% 16%;
-    --sidebar-ring: 168 72% 52%;
+    /* Sidebar dark */
+    --sidebar-background: 230 25% 8%;
+    --sidebar-foreground: 210 30% 94%;
+    --sidebar-primary: 145 60% 48%;
+    --sidebar-primary-foreground: 230 25% 7%;
+    --sidebar-accent: 230 20% 14%;
+    --sidebar-accent-foreground: 145 55% 65%;
+    --sidebar-border: 230 18% 16%;
+    --sidebar-ring: 145 60% 48%;
   }
 }
 
@@ -255,7 +306,7 @@
 
 @layer utilities {
 
-  /* Shadow utilities */
+  /* ─── Shadow utilities ─── */
   .shadow-xs {
     box-shadow: var(--shadow-xs);
   }
@@ -280,6 +331,10 @@
     box-shadow: var(--shadow-primary);
   }
 
+  .shadow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -292,9 +347,13 @@
     box-shadow: var(--shadow-xl);
   }
 
-  /* Gradient backgrounds */
+  /* ─── Gradient backgrounds ─── */
   .bg-gradient-primary {
     background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background-image: var(--gradient-secondary);
   }
 
   .bg-gradient-hero {
@@ -305,6 +364,10 @@
     background-image: var(--gradient-warm);
   }
 
+  .bg-gradient-rainbow {
+    background-image: var(--gradient-rainbow);
+  }
+
   .bg-gradient-surface {
     background-image: var(--gradient-surface);
   }
@@ -313,7 +376,7 @@
     background-image: var(--gradient-primary);
   }
 
-  /* Gradient text */
+  /* ─── Gradient text ─── */
   .text-gradient {
     background-image: var(--gradient-text);
     -webkit-background-clip: text;
@@ -328,7 +391,21 @@
     color: transparent;
   }
 
-  /* Glassmorphism */
+  .text-gradient-rainbow {
+    background-image: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-warm {
+    background-image: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ─── Glassmorphism ─── */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(16px) saturate(180%);
@@ -343,12 +420,20 @@
     -webkit-backdrop-filter: blur(8px) saturate(150%);
   }
 
-  /* Hero glow background */
+  .glass-strong {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* ─── Hero glow ─── */
   .hero-glow {
     background-image: var(--hero-glow);
   }
 
-  /* Patterns */
+  /* ─── Pattern backgrounds ─── */
   .bg-pattern-dots {
     background-image: var(--pattern-dots);
     background-size: var(--pattern-size) var(--pattern-size);
@@ -365,7 +450,7 @@
     background-position: center;
   }
 
-  /* Animated gradient border */
+  /* ─── Animated gradient border ─── */
   .border-gradient {
     position: relative;
     border: 1px solid transparent;
@@ -382,7 +467,11 @@
     opacity: 0.5;
   }
 
-  /* Shine effect on hover */
+  .border-gradient-rainbow::before {
+    background: var(--gradient-rainbow);
+  }
+
+  /* ─── Shine / hover effect ─── */
   .shine-effect {
     position: relative;
     overflow: hidden;
@@ -406,35 +495,30 @@
     left: 100%;
   }
 
-  /* Floating animation */
+  /* ─── Animation utilities ─── */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
-  /* Pulse glow */
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
-  /* Shimmer effect */
   .animate-shimmer {
     animation: shimmer 2s linear infinite;
     background-size: 200% 100%;
   }
 
-  /* Fade in animation */
   .animate-fade-in {
     animation: fade-up 0.6s ease-out forwards;
     opacity: 0;
   }
 
-  /* Scale in animation */
   .animate-scale-in {
     animation: scale-up 0.6s ease-out forwards;
     opacity: 0;
   }
 
-  /* Slide in animations */
   .animate-slide-in-left {
     animation: slide-in-left 0.6s ease-out forwards;
     opacity: 0;
@@ -443,6 +527,32 @@
   .animate-slide-in-right {
     animation: slide-in-right 0.6s ease-out forwards;
     opacity: 0;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 4s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  /* Brand-colored text helpers */
+  .text-brand-green {
+    color: hsl(var(--accent-green));
+  }
+
+  .text-brand-purple {
+    color: hsl(var(--accent-purple));
+  }
+
+  .text-brand-orange {
+    color: hsl(var(--accent-orange));
+  }
+
+  .text-brand-red {
+    color: hsl(var(--accent-red));
+  }
+
+  .text-brand-blue {
+    color: hsl(var(--accent-blue));
   }
 }
 
@@ -544,6 +654,20 @@
   }
 }
 
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    BASE STYLES
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -563,7 +687,17 @@
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Improved focus states for accessibility */
+  /* Headings use Outfit for a modern education feel */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Accessibility focus */
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
@@ -589,7 +723,7 @@
     background: hsl(var(--muted-foreground) / 0.5);
   }
 
-  /* Selection styling */
+  /* Selection */
   ::selection {
     background: hsl(var(--primary) / 0.2);
     color: hsl(var(--foreground));
@@ -597,12 +731,12 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COMPONENT ENHANCEMENTS
+   COMPONENT STYLES
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @layer components {
 
-  /* Premium card styling */
+  /* ─── Premium card ─── */
   .card-premium {
     @apply relative overflow-hidden rounded-2xl border border-border/50 bg-card;
     box-shadow: var(--shadow-md);
@@ -634,7 +768,31 @@
     opacity: 1;
   }
 
-  /* Floating action button style */
+  /* ─── Rainbow top border card ─── */
+  .card-rainbow {
+    @apply relative overflow-hidden rounded-2xl border border-border/50 bg-card;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-rainbow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-rainbow);
+    background-size: 300% 100%;
+    animation: rainbow-border 4s ease infinite;
+  }
+
+  .card-rainbow:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Floating button ─── */
   .btn-float {
     @apply relative overflow-hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -649,13 +807,18 @@
     transform: translateY(0);
   }
 
-  /* Glow text effect */
+  /* ─── Text glow ─── */
   .text-glow {
     text-shadow: 0 0 20px hsl(var(--primary) / 0.5),
       0 0 40px hsl(var(--primary) / 0.3);
   }
 
-  /* Navigation link with underline animation */
+  .text-glow-purple {
+    text-shadow: 0 0 20px hsl(var(--secondary) / 0.5),
+      0 0 40px hsl(var(--secondary) / 0.3);
+  }
+
+  /* ─── Nav link animated underline ─── */
   .nav-link-animated {
     @apply relative;
   }
@@ -677,7 +840,7 @@
     width: 100%;
   }
 
-  /* Stat card with animated number */
+  /* ─── Stat card ─── */
   .stat-card {
     @apply relative overflow-hidden rounded-2xl border border-border/50 bg-card p-6;
     box-shadow: var(--shadow-sm);
@@ -700,5 +863,65 @@
 
   .stat-card:hover::before {
     opacity: 0.03;
+  }
+
+  /* ─── Alert styles ─── */
+  .alert-success {
+    @apply rounded-xl border p-4;
+    border-color: hsl(var(--success) / 0.3);
+    background: hsl(var(--success) / 0.05);
+    color: hsl(var(--success));
+  }
+
+  .alert-warning {
+    @apply rounded-xl border p-4;
+    border-color: hsl(var(--warning) / 0.3);
+    background: hsl(var(--warning) / 0.05);
+    color: hsl(var(--warning));
+  }
+
+  .alert-info {
+    @apply rounded-xl border p-4;
+    border-color: hsl(var(--info) / 0.3);
+    background: hsl(var(--info) / 0.05);
+    color: hsl(var(--info));
+  }
+
+  .alert-danger {
+    @apply rounded-xl border p-4;
+    border-color: hsl(var(--destructive) / 0.3);
+    background: hsl(var(--destructive) / 0.05);
+    color: hsl(var(--destructive));
+  }
+
+  /* ─── Badge styles ─── */
+  .badge-green {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    background: hsl(var(--accent-green) / 0.1);
+    color: hsl(var(--accent-green));
+  }
+
+  .badge-purple {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    background: hsl(var(--accent-purple) / 0.1);
+    color: hsl(var(--accent-purple));
+  }
+
+  .badge-orange {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    background: hsl(var(--accent-orange) / 0.1);
+    color: hsl(var(--accent-orange));
+  }
+
+  .badge-blue {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    background: hsl(var(--accent-blue) / 0.1);
+    color: hsl(var(--accent-blue));
+  }
+
+  .badge-red {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    background: hsl(var(--accent-red) / 0.1);
+    color: hsl(var(--accent-red));
   }
 }

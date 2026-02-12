@@ -26,6 +26,13 @@ export default {
           "Arial",
           "sans-serif",
         ],
+        heading: [
+          "Outfit",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -45,6 +52,18 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        info: {
+          DEFAULT: "hsl(var(--info))",
+          foreground: "hsl(var(--info-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -52,12 +71,21 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          /* Brand colors from logo */
+          green: "hsl(var(--accent-green))",
+          lime: "hsl(var(--accent-lime))",
+          orange: "hsl(var(--accent-orange))",
+          red: "hsl(var(--accent-red))",
+          purple: "hsl(var(--accent-purple))",
+          blue: "hsl(var(--accent-blue))",
+          peach: "hsl(var(--accent-peach))",
+          indigo: "hsl(var(--accent-indigo))",
+          /* Legacy compat */
           teal: "hsl(var(--accent-teal))",
           emerald: "hsl(var(--accent-emerald))",
           cyan: "hsl(var(--accent-cyan))",
           gold: "hsl(var(--accent-gold))",
           coral: "hsl(var(--accent-coral))",
-          purple: "hsl(var(--accent-purple))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -89,6 +117,7 @@ export default {
       boxShadow: {
         'glow': '0 0 20px hsl(var(--primary) / 0.3)',
         'glow-lg': '0 0 40px hsl(var(--primary) / 0.4)',
+        'glow-purple': '0 0 20px hsl(var(--secondary) / 0.3)',
         'inner-glow': 'inset 0 0 20px hsl(var(--primary) / 0.1)',
       },
       backgroundImage: {

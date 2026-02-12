@@ -20,10 +20,10 @@ export default function Home() {
   return (
     <div className="space-y-20">
       {/* Hero Section with Image */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/5 via-background to-accent-emerald/5">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/5 via-background to-accent-purple/5">
         {/* Background decorations */}
-        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/20 to-accent-cyan/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent-emerald/15 to-primary/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/20 to-accent-blue/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent-purple/15 to-primary/10 blur-3xl" />
         <div className="pointer-events-none absolute inset-0 bg-pattern-dots opacity-20" />
 
         <div className="relative grid gap-8 p-8 md:grid-cols-2 md:items-center md:gap-12 md:p-12 lg:p-16">
@@ -78,7 +78,7 @@ export default function Home() {
 
           {/* Right side - Hero Image */}
           <div className="relative animate-scale-in">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-accent-emerald/20 to-accent-cyan/20 blur-2xl opacity-60" />
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-accent-purple/20 to-accent-blue/20 blur-2xl opacity-60" />
             <img
               src={heroImage}
               alt="Children reading books in a library"
@@ -87,7 +87,7 @@ export default function Home() {
             {/* Floating badge */}
             <div className="absolute -bottom-4 -left-4 rounded-2xl bg-card border border-border/50 p-4 shadow-xl backdrop-blur-sm animate-float">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent-gold to-accent-coral text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent-orange to-accent-red text-white">
                   <Heart className="h-6 w-6" />
                 </div>
                 <div>
@@ -112,7 +112,7 @@ export default function Home() {
       <section className="grid gap-8 md:grid-cols-2 md:items-center">
         <div className="order-2 md:order-1 animate-slide-in-left">
           <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent-emerald/20 to-primary/10 blur-2xl opacity-50" />
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 to-accent-lime/10 blur-2xl opacity-50" />
             <img
               src={schoolLibraryImage}
               alt="School library with children reading"
@@ -178,14 +178,14 @@ export default function Home() {
                 title: t("home.how.step1"),
                 desc: "Primary/secondary textbooks, story books, and educational books in Sinhala, Tamil, or English.",
                 icon: BookOpen,
-                gradient: "from-primary to-accent-cyan",
+                gradient: "from-primary to-accent-blue",
               },
               {
                 step: "02",
                 title: t("home.how.step2"),
                 desc: "We coordinate collection points and volunteers to sort and label the books carefully.",
                 icon: Users,
-                gradient: "from-accent-emerald to-accent-teal",
+                gradient: "from-accent-lime to-accent-green",
               },
               {
                 step: "03",
@@ -254,7 +254,7 @@ export default function Home() {
 
         <div className="animate-slide-in-right">
           <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent-purple/20 to-accent-coral/10 blur-2xl opacity-50" />
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent-purple/20 to-accent-red/10 blur-2xl opacity-50" />
             <img
               src={volunteersImage}
               alt="Volunteers organizing books"
@@ -265,10 +265,10 @@ export default function Home() {
       </section>
 
       {/* Donate Books Section with Image */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-gold/10 via-background to-accent-coral/10 border border-border/50">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent-orange/10 via-background to-accent-red/10 border border-border/50">
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
           <div className="p-8 md:p-12 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent-gold/10 px-4 py-2 text-sm font-semibold text-accent-gold">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-orange/10 px-4 py-2 text-sm font-semibold text-accent-orange">
               <BookOpen className="h-4 w-4" />
               Share Knowledge
             </div>
@@ -281,7 +281,7 @@ export default function Home() {
             <div className="space-y-3">
               {["Kids books & story books", "School textbooks", "Educational references", "Novels in any language"].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-accent-gold shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-accent-orange shrink-0" />
                   <span className="text-muted-foreground">{item}</span>
                 </div>
               ))}
@@ -311,7 +311,7 @@ export default function Home() {
 
         <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent-cyan/10 px-4 py-2 text-sm font-semibold text-accent-cyan">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-blue/10 px-4 py-2 text-sm font-semibold text-accent-blue">
               <Sparkles className="h-4 w-4" />
               {t("home.featured.title")}
             </div>
@@ -330,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary via-accent-emerald to-accent-cyan p-8 shadow-2xl md:p-16 text-center">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary via-accent-purple to-accent-blue p-8 shadow-2xl md:p-16 text-center">
         <div className="pointer-events-none absolute inset-0 bg-pattern-dots opacity-10" />
         <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-white/20 blur-3xl" />
         <div className="pointer-events-none absolute -left-20 -bottom-20 h-60 w-60 rounded-full bg-white/10 blur-3xl" />

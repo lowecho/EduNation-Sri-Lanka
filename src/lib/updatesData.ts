@@ -1,3 +1,6 @@
+import feb4_1 from "@/assets/feb4/feb4_1.png";
+import feb4_2 from "@/assets/feb4/feb4_2.png";
+
 export type UpdateItem = {
   id: string;
   date: string; // YYYY-MM-DD
@@ -8,6 +11,7 @@ export type UpdateItem = {
 
 export type MediaItem = {
   src: string;
+  images?: string[]; // Optional array for carousel
   alt: string;
   caption: string;
   date?: string;
@@ -62,14 +66,14 @@ export const roadmapMilestones: RoadmapMilestone[] = [
     dateLabel: "Early February",
     title: "Press Briefing",
     description: "Public briefing to introduce the initiative, partners, and the first campaign steps.",
-    status: "planned",
+    status: "completed",
   },
   {
     id: "bmich-launch",
     dateLabel: "Feb 4",
     title: "BMICH – Humble Launch Ceremony",
     description: "Official launch event to mark the beginning of the nationwide campaign.",
-    status: "planned",
+    status: "completed",
   },
   {
     id: "collection-drive",
@@ -128,22 +132,11 @@ export const roadmapPhases: RoadmapPhase[] = [
 
 export const gallery: MediaItem[] = [
   {
-    src: "/placeholder.svg",
-    alt: "Volunteers organizing book donations on tables",
-    caption: "Sorting day — labeling and organizing by grade",
-    date: "2026-01-25",
-  },
-  {
-    src: "/placeholder.svg",
-    alt: "Stacked boxes ready for transport",
-    caption: "Packed boxes ready for transport",
-    date: "2026-01-26",
-  },
-  {
-    src: "/placeholder.svg",
-    alt: "A classroom corner prepared for library shelves",
-    caption: "Preparing space for shelves (before)",
-    date: "2026-01-27",
+    src: feb4_1,
+    images: [feb4_1, feb4_2],
+    alt: "Highlights from the BMICH Launch Ceremony",
+    caption: "BMICH – Humble Launch Ceremony",
+    date: "2026-02-04",
   },
 ];
 

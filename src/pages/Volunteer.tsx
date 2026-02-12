@@ -1,15 +1,16 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { Users, Calendar, Package, Camera, Sparkles, Heart, BookOpen, Truck, Send, CheckCircle } from "lucide-react";
+import { Users, Calendar, Package, Camera, Sparkles, Heart, BookOpen, Truck, Send, CheckCircle, Share2, RefreshCw } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useI18n } from "@/lib/i18n";
+import { supabase } from "@/lib/supabase";
 
 // Import image
 import volunteersImage from "@/assets/volunteers.png";
@@ -63,6 +64,9 @@ export default function Volunteer() {
     () => ({ name: "", whatsapp: "", district: "", availability: "", skills: "" }),
     [],
   );
+
+  const [submitted, setSubmitted] = useState<FormValues | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -70,10 +74,40 @@ export default function Volunteer() {
     reset,
   } = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: defaults });
 
-  const onSubmit = (values: FormValues) => {
-    toast.success("Thanks for volunteering! 🎉", {
-      description: `We'll contact you on WhatsApp (${values.whatsapp}) with next steps.`,
-    });
+  const onSubmit = async (values: FormValues) => {
+    try {
+      const { error } = await supabase.from('volunteers').insert([
+        {
+          name: values.name,
+          whatsapp: values.whatsapp,
+          district: values.district,
+          availability: values.availability,
+          skills: values.skills,
+          created_at: new Date().toISOString(),
+        }
+      ]);
+
+      if (error) throw error;
+
+      toast.success("Thanks for volunteering! 🎉", {
+        description: `We'll contact you on WhatsApp (${values.whatsapp}) with next steps.`,
+      });
+      setSubmitted(values);
+    } catch (error) {
+      console.error('Error submitting volunteer info:', error);
+      toast.error("Failed to submit. Please try again.");
+    }
+  };
+
+  const shareOnWhatsApp = () => {
+    const text = `🤝 I just signed up to volunteer with EduNation Sri Lanka!
+Join me in making a difference for students across the country. 🌟
+Sign up here: testtttt.com`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noreferrer");
+  };
+
+  const startOver = () => {
+    setSubmitted(null);
     reset(defaults);
   };
 
@@ -171,73 +205,97 @@ export default function Volunteer() {
             <p className="mt-4 text-muted-foreground">Fill out the form below and we'll reach out with next steps</p>
           </div>
 
-          <form className="grid gap-6 md:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
-            <div className="space-y-2">
-              <Label htmlFor="name" className="font-medium">Full Name</Label>
-              <Input
-                id="name"
-                autoComplete="name"
-                className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
-                placeholder="Your full name"
-                {...register("name")}
-              />
-              {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+          {submitted ? (
+            <div className="rounded-2xl border border-accent-emerald/30 bg-accent-emerald/5 p-8 text-center space-y-6 animate-in fade-in zoom-in duration-300">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-accent-emerald to-accent-teal text-white">
+                <CheckCircle className="h-8 w-8" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-accent-emerald">Welcome to the Team!</h3>
+                <p className="mt-2 text-muted-foreground">
+                  Thanks for signing up, {submitted.name.split(' ')[0]}. We'll contact you on WhatsApp soon.
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button type="button" variant="hero" size="lg" onClick={shareOnWhatsApp}>
+                  <Share2 className="h-5 w-5" />
+                  Share with Friends
+                </Button>
+                <Button type="button" variant="outline" size="lg" onClick={startOver}>
+                  <RefreshCw className="h-5 w-5" />
+                  Register Another
+                </Button>
+              </div>
             </div>
+          ) : (
+            <form className="grid gap-6 md:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
+              <div className="space-y-2">
+                <Label htmlFor="name" className="font-medium">Full Name</Label>
+                <Input
+                  id="name"
+                  autoComplete="name"
+                  className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
+                  placeholder="Your full name"
+                  {...register("name")}
+                />
+                {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
+              </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="whatsapp" className="font-medium">WhatsApp Number</Label>
-              <Input
-                id="whatsapp"
-                autoComplete="tel"
-                className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
-                placeholder="+94 XX XXX XXXX"
-                {...register("whatsapp")}
-              />
-              {errors.whatsapp && <p className="text-sm text-destructive">{errors.whatsapp.message}</p>}
-            </div>
+              <div className="space-y-2">
+                <Label htmlFor="whatsapp" className="font-medium">WhatsApp Number</Label>
+                <Input
+                  id="whatsapp"
+                  autoComplete="tel"
+                  className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
+                  placeholder="+94 XX XXX XXXX"
+                  {...register("whatsapp")}
+                />
+                {errors.whatsapp && <p className="text-sm text-destructive">{errors.whatsapp.message}</p>}
+              </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="district" className="font-medium">District</Label>
-              <Input
-                id="district"
-                autoComplete="address-level1"
-                className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
-                placeholder="Your district"
-                {...register("district")}
-              />
-              {errors.district && <p className="text-sm text-destructive">{errors.district.message}</p>}
-            </div>
+              <div className="space-y-2">
+                <Label htmlFor="district" className="font-medium">District</Label>
+                <Input
+                  id="district"
+                  autoComplete="address-level1"
+                  className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
+                  placeholder="Your district"
+                  {...register("district")}
+                />
+                {errors.district && <p className="text-sm text-destructive">{errors.district.message}</p>}
+              </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="availability" className="font-medium">Available Days</Label>
-              <Input
-                id="availability"
-                className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
-                placeholder="Weekends / Weekdays / Flexible"
-                {...register("availability")}
-              />
-              {errors.availability && <p className="text-sm text-destructive">{errors.availability.message}</p>}
-            </div>
+              <div className="space-y-2">
+                <Label htmlFor="availability" className="font-medium">Available Days</Label>
+                <Input
+                  id="availability"
+                  className="h-12 rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background"
+                  placeholder="Weekends / Weekdays / Flexible"
+                  {...register("availability")}
+                />
+                {errors.availability && <p className="text-sm text-destructive">{errors.availability.message}</p>}
+              </div>
 
-            <div className="space-y-2 md:col-span-2">
-              <Label htmlFor="skills" className="font-medium">Skills & Interests (optional)</Label>
-              <Textarea
-                id="skills"
-                rows={4}
-                className="rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background resize-none"
-                placeholder="Photography, design, coordination, driving, etc."
-                {...register("skills")}
-              />
-              {errors.skills && <p className="text-sm text-destructive">{errors.skills.message}</p>}
-            </div>
+              <div className="space-y-2 md:col-span-2">
+                <Label htmlFor="skills" className="font-medium">Skills & Interests (optional)</Label>
+                <Textarea
+                  id="skills"
+                  rows={4}
+                  className="rounded-xl border-border/50 bg-background/50 transition-all duration-300 focus:border-primary/50 focus:bg-background resize-none"
+                  placeholder="Photography, design, coordination, driving, etc."
+                  {...register("skills")}
+                />
+                {errors.skills && <p className="text-sm text-destructive">{errors.skills.message}</p>}
+              </div>
 
-            <div className="md:col-span-2 flex justify-center">
-              <Button type="submit" variant="hero" size="xl" disabled={isSubmitting} className="min-w-[250px]">
-                <Send className="h-5 w-5" />
-                Sign Up to Volunteer
-              </Button>
-            </div>
-          </form>
+              <div className="md:col-span-2 flex justify-center">
+                <Button type="submit" variant="hero" size="xl" disabled={isSubmitting} className="min-w-[250px]">
+                  <Send className="h-5 w-5" />
+                  Sign Up to Volunteer
+                </Button>
+              </div>
+            </form>
+          )}
         </div>
       </section>
     </div>
