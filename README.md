@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# EduNation Sri Lanka
 
-## Project info
+EduNation Sri Lanka is a community-driven initiative dedicated to uplifting underprivileged students by collecting and redistributing used books and providing educational resources.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🌟 Project Overview
 
-## How can I edit this code?
+This is the official repository for the EduNation Sri Lanka website. The platform serves as a hub for:
+- Collecting book donations ("Breathing Letters" campaign).
+- Recruiting volunteers.
+- Facilitating monetary donations.
+- Providing transparent updates on our activities.
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- **Modern & Responsive Design**: Built with React, Tailwind CSS, and Shadcn UI for a premium, accessible experience.
+- **Supabase Integration**:
+  - Securely stores volunteer sign-ups.
+  - Manages book donation pledges.
+  - Includes Row Level Security (RLS) for data privacy.
+- **Dynamic Content**:
+  - Auto-sliding image galleries for event updates.
+  - Interactive forms with real-time feedback.
+  - WhatsApp integration for easy sharing.
+- **Multi-language Support**: Structure in place for English, Sinhala, and Tamil content.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS, Shadcn UI, Lucide Icons
+- **Backend / Database**: Supabase (PostgreSQL)
+- **Deployment**: GitHub Pages
 
-**Use your preferred IDE**
+## 📦 Installation & Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/lowecho/EduNation-Sri-Lanka.git
+   cd EduNation-Sri-Lanka
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Follow these steps:
+3. **Set up Environment Variables**
+   Create a `.env` file in the root directory and add your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+   *Note: Ensure you have created the `volunteers` and `book_donations` tables in your Supabase project as per the schema.*
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚢 Deployment
 
-# Step 3: Install the necessary dependencies.
-npm i
+The site is deployed to GitHub Pages.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+To deploy a new version:
+```bash
+npm run deploy
 ```
+This command builds the project and pushes the `dist` folder to the `gh-pages` branch.
 
-**Edit a file directly in GitHub**
+## 🤝 Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+We welcome contributions! Please feel free to submit a Pull Request.
 
-**Use GitHub Codespaces**
+## 📄 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is licensed under the MIT License.
